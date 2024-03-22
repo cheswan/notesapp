@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../components/Header'
 import { StatusBar } from 'expo-status-bar'
 
-const HomeScreen = ({setScreen}) => {
+const HomeScreen = ({ setScreen }) => {
   return (
     <View style={styles.container}>
       <Header></Header>
@@ -26,16 +26,16 @@ const HomeScreen = ({setScreen}) => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-    container: {
-        // flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      
-      headerText: {
-        color: '#FFF',
-        fontSize: 28,
-        fontWeight: "bold"
-      }
+  container: {
+    // flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  headerText: {
+    color: '#FFF',
+    fontSize: 28,
+    fontWeight: "bold"
+  }
 })

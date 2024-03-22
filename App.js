@@ -6,15 +6,20 @@ import AddNote from './screens/AddNote';
 import AllNotes from './screens/AllNotes';
 import { useState } from 'react';
 
-
-
-
-
 export default function App() {
   const [screen, setScreen] = useState('home'); // home is the initial screen
-  
+  const [addNewNote, setAddNewNote] = useState([]);
+
   const onSetScreen = (val) => {
     setScreen(val);
+  }
+
+  const onAddNote = (data) => {
+    let copyAddNewNote = [...addNewNote]
+    let newData = {id: Date.now, note: data}
+
+    copyAddNewNote.push(newData)
+    setAddNewNote(copyAddNewNote)
   }
 
   const screenType = {
@@ -26,8 +31,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {screen == screenType.home&&<HomeScreen setScreen={onSetScreen}></HomeScreen>}
-      {screen == screenType.addNote&&<AddNote setScreen={onSetScreen}></AddNote>}
-      {screen == screenType.allNote&&<AllNotes setScreen={onSetScreen}></AllNotes>}
+      {screen == screenType.addNote&&<AddNote setScreen={onSetScreen} newNote={onAddNote}></AddNote>}
+      {screen == screenType.allNote&&<AllNotes setScreen={onSetScreen} list={addNewNote}></AllNotes>}
     </View>
   );
 }
