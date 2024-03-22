@@ -2,21 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import Header from '../components/Header'
 
-const AllNotes = ({ setScreen }) => {
-    const [array, setArray] = useState([
-        {
-            id: 1,
-            note: 'note1',
-        },
-        {
-            id: 2,
-            note: 'note2',
-        }
-    ]);
+const AllNotes = ({ setScreen, list }) => {
+    
     const renderItem = () => {
         let myList = []
-        for (let i = 0; i < array.length; i++) {
-            const element = array[i];
+        for (let i = 0; i < list.length; i++) {
+            const element = list[i];
             let content = (
                 <View>
                     <Text>{element.note}</Text>
